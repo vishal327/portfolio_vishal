@@ -86,6 +86,14 @@ const portfolioProjects = [
     clip: `${process.env.PUBLIC_URL}/clips/logicGateProjectClip.mp4`,
     links: [{ label: "View on GitHub", href: "https://github.com/vishal327" }],
   },
+  {
+    title: "LLD & HLD System Designer",
+    tags: ["React", "System Design", "LLD", "HLD"],
+    description:
+      "A tool for exploring low-level and high-level system design—map components, relationships, and architecture patterns with an interactive visual workflow.",
+    clip: `${process.env.PUBLIC_URL}/clips/LLD_HLD_clip.mp4`,
+    links: [{ label: "View on GitHub", href: "https://github.com/vishal327" }],
+  },
 ];
 
 const projectHighlights = [
