@@ -77,18 +77,29 @@ const timeline = [
   },
 ];
 
+const portfolioProjects = [
+  {
+    title: "Logic Gate Simulator",
+    tags: ["React", "JavaScript", "Digital Logic", "Interactive UI"],
+    description:
+      "An interactive logic gate learning tool where users can build and visualize digital circuits. The preview shows the live UI in action—drag, connect, and watch signals flow through gates in real time.",
+    clip: `${process.env.PUBLIC_URL}/clips/logicGateProjectClip.mp4`,
+    links: [{ label: "View on GitHub", href: "https://github.com/vishal327" }],
+  },
+];
+
 const projectHighlights = [
   {
     title: "Broadcast Graphics Automation",
     tags: ["MERN", "Python", "WebSockets", "VizRT"],
     description:
-      "My work has included end-to-end MES automation for global manufacturing environments, where the goal was to digitize and streamline plant-level operations across multiple business functions. I have also contributed to sports broadcast systems that depend on real-time data processing, low-latency communication, and visually accurate graphics rendering for live audiences.",
+      "End-to-end sports broadcast systems with real-time data processing, low-latency communication, and VizRT graphics automation for live productions.",
   },
   {
     title: "Manufacturing Digitization",
     tags: ["DELMIA Apriso", "MES", "SQL", "Automation"],
     description:
-      "Another key area of my experience is VizRT graphics automation, where I have scripted workflows that map live data to broadcast graphics and reduce manual intervention for operators. Alongside that, I have been involved in live event deployments and on-ground system execution, helping teams run reliable technical setups in time-sensitive production environments.",
+      "MES automation for global manufacturing—digitizing production, quality, maintenance, and warehouse workflows across large-scale plant operations.",
   },
 ];
 
@@ -268,6 +279,56 @@ function LinkButton({ href, children, variant = "primary" }) {
     >
       {children}
     </a>
+  );
+}
+
+function ProjectClipCard({ project }) {
+  return (
+    <Panel className="group overflow-hidden">
+      <div className="relative aspect-video overflow-hidden rounded-t-[28px] border-b border-white/10 bg-slate-900">
+        <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
+        <video
+          className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.02]"
+          src={project.clip}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          aria-label={`${project.title} preview`}
+        />
+        <span className="absolute left-4 top-4 z-20 rounded-full border border-white/15 bg-slate-950/70 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.28em] text-blue-200 backdrop-blur-sm">
+          Live preview
+        </span>
+      </div>
+
+      <div className="px-6 py-6 sm:px-7">
+        <div className="flex flex-wrap gap-2">
+          {project.tags.map((tag) => (
+            <Pill key={tag} className="bg-white/10 text-slate-100">
+              {tag}
+            </Pill>
+          ))}
+        </div>
+        <h3 className="mt-5 text-2xl font-semibold text-white">{project.title}</h3>
+        <p className="mt-4 text-sm leading-7 text-slate-300 sm:text-base">
+          {project.description}
+        </p>
+        {project.links?.length ? (
+          <div className="mt-6 flex flex-wrap gap-3">
+            {project.links.map((link) => (
+              <LinkButton
+                key={link.label}
+                href={link.href}
+                variant="secondary"
+              >
+                {link.label}
+              </LinkButton>
+            ))}
+          </div>
+        ) : null}
+      </div>
+    </Panel>
   );
 }
 
@@ -605,13 +666,27 @@ export default function Portfolio() {
           <section id="projects" className="mt-12">
             <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
               <SectionHeading
-                eyebrow="Featured Projects"
+                eyebrow="My Projects"
                 title="Things I&apos;ve built."
-                subtitle="These highlight areas of work that best represent my manufacturing, broadcast, and automation experience."
+                subtitle="Scroll through live previews of apps and tools I have shipped. Each card loops a short clip so you can see the product in motion before diving in."
               />
               <LinkButton href="#contact" variant="secondary">
                 Let&apos;s Build Together
               </LinkButton>
+            </div>
+
+            <div className="mt-8 grid gap-6 lg:grid-cols-2">
+              {portfolioProjects.map((project) => (
+                <ProjectClipCard key={project.title} project={project} />
+              ))}
+            </div>
+
+            <div className="mt-10">
+              <SectionHeading
+                eyebrow="Professional Highlights"
+                title="Work that shaped my engineering path."
+                subtitle="Beyond personal builds, these domains reflect the systems I deliver in manufacturing and live broadcast environments."
+              />
             </div>
 
             <div className="mt-8 grid gap-6 xl:grid-cols-2">

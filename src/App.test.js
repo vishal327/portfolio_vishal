@@ -1,8 +1,11 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
+test('renders portfolio projects section', () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+  expect(screen.getByText(/Logic Gate Simulator/i)).toBeInTheDocument();
+  expect(screen.getByLabelText(/Logic Gate Simulator preview/i)).toBeInTheDocument();
 });
+
+// to deploy again
+// npm run deploy
