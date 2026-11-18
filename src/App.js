@@ -2,7 +2,7 @@ import React from "react";
 import profileImage from "./assets/profile.png";
 
 const heroParagraphs = [
-  "I am a software engineer with over 4+ years of experience working across manufacturing technology, full-stack development, and live broadcast graphics systems. My work sits at the intersection of reliable engineering and real-world execution, whether that means digitizing plant operations for global manufacturers or delivering real-time data systems for high-pressure sports productions.",
+  "I am a software engineer with over 5+ years of experience working across manufacturing technology, full-stack development, and live broadcast graphics systems. My work sits at the intersection of reliable engineering and real-world execution, whether that means digitizing plant operations for global manufacturers or delivering real-time data systems for high-pressure sports productions.",
   "I enjoy building practical solutions with MERN, .NET, Python, and AI-assisted development workflows. I am especially drawn to projects where software has to perform reliably in dynamic environments and where speed, ownership, and problem solving directly impact outcomes.",
 ];
 
@@ -157,7 +157,7 @@ const navItems = [
 ];
 
 const stats = [
-  { value: "4+", label: "Years Experience" },
+  { value: "5+", label: "Years Experience" },
   { value: "3", label: "Professional Roles" },
   { value: "2", label: "Core Domains" },
   { value: "10+", label: "Technologies Used" },
@@ -421,7 +421,7 @@ export default function Portfolio() {
 
               <div className="mt-8 flex flex-wrap gap-3">
                 <Pill>India</Pill>
-                <Pill>4+ Years Experience</Pill>
+                <Pill>5+ Years Experience</Pill>
                 <Pill>Manufacturing + Broadcast Tech</Pill>
               </div>
 
